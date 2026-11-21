@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nicitosacom-pixel.github.io/meinfo-technology/sitemap.xml
