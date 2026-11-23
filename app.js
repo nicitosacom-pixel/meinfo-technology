@@ -49,6 +49,16 @@
       try{navigator.clipboard.writeText(msg).then(function(){note.textContent='Текст скопирован. Вставьте его в чат Telegram.'},function(){note.textContent=fail})}catch(_){note.textContent=fail}
     });
   }
+  /* portfolio accordion + lightbox */
+  all('.cat-h').forEach(function(b){b.addEventListener('click',function(){var c=b.closest('.cat'),o=c.classList.toggle('open');b.setAttribute('aria-expanded',o)})});
+  var lb=$('lb');
+  if(lb){
+    var li=lb.querySelector('img');
+    var cl=function(){lb.hidden=true;li.removeAttribute('src')};
+    all('.th').forEach(function(t){t.addEventListener('click',function(){li.src=t.getAttribute('data-full');li.alt=t.querySelector('img').alt;lb.hidden=false})});
+    lb.addEventListener('click',function(e){if(e.target!==li)cl()});
+    addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
+  }
   /* particles */
   var c=$('fx'),x=c.getContext('2d'),P=[],W=0,H=0;
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;var n=Math.min(70,Math.floor(W*H/20000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4})}
